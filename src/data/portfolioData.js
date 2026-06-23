@@ -79,7 +79,7 @@ export const experience = [
     id: 'sg-exec',
     role: 'Secretary for Sports, Culture and Arts',
     company: 'DLSL Student Government Executive Council',
-    period: '2025 – Present',
+    period: '2025 – 2026',
     type: 'Leadership',
     icon: '🏫',
     description: 'Serving as Secretary for Sports, Culture and Arts in the DLSL Student Government Executive Council, managing events, coordinating with student organizations, and driving cultural initiatives.',
