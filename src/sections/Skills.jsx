@@ -3,28 +3,21 @@ import { motion } from 'framer-motion';
 import { skills } from '../data/portfolioData';
 import { SectionTitle } from '../components/ui/SectionTitle';
 
-function SkillBar({ name, level, delay = 0 }) {
+function SkillItem({ name, delay = 0 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      className="group"
+      transition={{ duration: 0.4, delay }}
+      className="flex items-center gap-3 px-4 py-3 bg-persona-surface border dark:border-white/5 border-black/5 hover:border-persona-red/40 dark:hover:border-persona-red/40 transition-all duration-300 group"
     >
-      <div className="flex justify-between items-center mb-1.5">
-        <span className="font-inter text-sm text-white font-medium">{name}</span>
-        <span className="font-mono text-xs text-persona-red">{level}%</span>
+      <div className="relative flex items-center justify-center w-6 h-6 bg-persona-red/10 rounded-full group-hover:bg-persona-red/20 transition-colors">
+        <span className="w-1.5 h-1.5 bg-persona-red rounded-full group-hover:scale-125 group-hover:shadow-[0_0_8px_rgba(214,0,28,0.8)] transition-all" />
       </div>
-      <div className="h-1.5 bg-persona-surface-3 rounded-full overflow-hidden">
-        <motion.div
-          className="skill-bar-fill"
-          initial={{ width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: delay + 0.2 }}
-        />
-      </div>
+      <span className="font-inter text-sm font-medium text-white group-hover:text-persona-red transition-colors">
+        {name}
+      </span>
     </motion.div>
   );
 }
@@ -104,13 +97,12 @@ export default function Skills() {
               </div>
             </div>
 
-            <div className="space-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {skills[activeCategory].items.map((skill, i) => (
-                <SkillBar
+                <SkillItem
                   key={skill.name}
                   name={skill.name}
-                  level={skill.level}
-                  delay={i * 0.07}
+                  delay={i * 0.05}
                 />
               ))}
             </div>

@@ -62,7 +62,7 @@ export default function Education() {
                     {edu.achievements.map((a) => (
                       <span
                         key={a}
-                        className="flex items-center gap-1.5 text-xs font-inter text-white/70 bg-white/5 px-3 py-1.5"
+                        className="flex items-center gap-1.5 text-xs font-inter dark:text-white/70 text-gray-700 dark:bg-white/5 bg-black/5 px-3 py-1.5"
                       >
                         <span className="w-1 h-1 bg-persona-red rounded-full" />
                         {a}
@@ -74,14 +74,14 @@ export default function Education() {
                 {/* Coursework */}
                 {edu.coursework.length > 0 && (
                   <div>
-                    <p className="font-mono text-[10px] text-persona-gray/60 uppercase tracking-widest mb-2">
+                    <p className="font-mono text-[10px] dark:text-persona-gray/60 text-gray-500 uppercase tracking-widest mb-2">
                       Relevant Coursework
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {edu.coursework.map((c) => (
                         <span
                           key={c}
-                          className="px-2.5 py-1 text-[11px] font-inter text-persona-gray border border-white/8"
+                          className="px-2.5 py-1 text-[11px] font-inter text-persona-gray dark:border-white/8 border-black/10"
                         >
                           {c}
                         </span>
