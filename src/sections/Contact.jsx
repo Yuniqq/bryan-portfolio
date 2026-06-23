@@ -183,9 +183,8 @@ export default function Contact() {
                       value={form[field]}
                       onChange={e => handleChange(field, e.target.value)}
                       placeholder={placeholder}
-                      className={`w-full bg-persona-surface border px-4 py-3 font-inter text-sm text-white placeholder-persona-gray/40 outline-none transition-colors focus:border-persona-red ${
-                        errors[field] ? 'border-red-500' : 'border-white/10'
-                      }`}
+                      className={`w-full bg-persona-surface border px-4 py-3 font-inter text-sm text-white placeholder-persona-gray/40 outline-none transition-colors focus:border-persona-red ${errors[field] ? 'border-red-500' : 'border-white/10'
+                        }`}
                     />
                     {errors[field] && (
                       <p className="font-mono text-xs text-red-400 mt-1">{errors[field]}</p>
@@ -203,9 +202,8 @@ export default function Contact() {
                     value={form.message}
                     onChange={e => handleChange('message', e.target.value)}
                     placeholder="Tell me about the opportunity or what you'd like to discuss..."
-                    className={`w-full bg-persona-surface border px-4 py-3 font-inter text-sm text-white placeholder-persona-gray/40 outline-none transition-colors focus:border-persona-red resize-none ${
-                      errors.message ? 'border-red-500' : 'border-white/10'
-                    }`}
+                    className={`w-full bg-persona-surface border px-4 py-3 font-inter text-sm text-white placeholder-persona-gray/40 outline-none transition-colors focus:border-persona-red resize-none ${errors.message ? 'border-red-500' : 'border-white/10'
+                      }`}
                   />
                   {errors.message && (
                     <p className="font-mono text-xs text-red-400 mt-1">{errors.message}</p>
@@ -238,9 +236,6 @@ export default function Contact() {
         >
           <p className="font-inter text-xs text-persona-gray/50">
             © {new Date().getFullYear()} Bryan Andrew D. Perez · Built with React & Vite
-          </p>
-          <p className="font-mono text-xs text-persona-gray/30 tracking-widest">
-            Designed & Developed with ❤️
           </p>
         </motion.div>
       </div>

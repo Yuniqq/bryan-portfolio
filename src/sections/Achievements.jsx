@@ -78,7 +78,7 @@ export default function Achievements() {
                 {ach.description}
               </p>
               <div className="flex items-center justify-between">
-                <p className="font-mono text-xs text-persona-gray/60">{ach.issuer}</p>
+                <p className="font-mono text-xs dark:text-persona-gray/60 text-gray-600">{ach.issuer}</p>
                 <p className="font-mono text-xs font-medium" style={{ color: ach.color }}>{ach.year}</p>
               </div>
             </motion.div>
