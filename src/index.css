@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --cursor-size: 12px;
+  --cursor-ring-size: 36px;
+}
+
+/* ===== BASE RESETS ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: none;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+.light body {
+  background-color: #FFFFFF;
+  color: #111111;
+}
+
+/* Hide default cursor on all interactive elements */
+a, button, input, textarea, select, [role="button"] {
+  cursor: none;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #D6001C;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF1A35;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: #D6001C;
+  color: #fff;
+}
+
+/* ===== CUSTOM CURSOR ===== */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  background: #D6001C;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+  mix-blend-mode: normal;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cursor-ring-size);
+  height: var(--cursor-ring-size);
+  border: 1.5px solid rgba(214, 0, 28, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, width 0.25s ease, height 0.25s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.cursor-dot.cursor-hover {
+  width: 6px;
+  height: 6px;
+  background: #FF1A35;
+}
+
+.cursor-ring.cursor-hover {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(214, 0, 28, 0.9);
+}
+
+/* ===== DIAGONAL ACCENT ===== */
+.diagonal-accent {
+  position: relative;
+  overflow: hidden;
+}
+.diagonal-accent::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -10%;
+  width: 120%;
+  height: 100%;
+  background: #D6001C;
+  transform: skewX(-8deg);
+  z-index: -1;
+}
+
+/* ===== PERSONA CARD HOVER ===== */
+.persona-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.persona-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(214,0,28,0.08), transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+.persona-card:hover::before {
+  left: 100%;
+}
+.persona-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(214, 0, 28, 0.2);
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+/* ===== RED BAR ACCENT ===== */
+.red-bar {
+  display: inline-block;
+  width: 48px;
+  height: 4px;
+  background: #D6001C;
+  margin-bottom: 12px;
+}
+
+/* ===== GLOW EFFECTS ===== */
+.glow-red {
+  box-shadow: 0 0 30px rgba(214, 0, 28, 0.3), 0 0 60px rgba(214, 0, 28, 0.1);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 30px rgba(214, 0, 28, 0.5);
+}
+
+/* ===== DIAGONAL STRIPE BG ===== */
+.diagonal-bg {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(214,0,28,0.03) 10px,
+    rgba(214,0,28,0.03) 20px
+  );
+}
+
+/* ===== NOISE OVERLAY ===== */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== TIMELINE ===== */
+.timeline-line {
+  background: linear-gradient(to bottom, #D6001C, transparent);
+}
+
+/* ===== SKILL BAR ===== */
+.skill-bar-fill {
+  background: linear-gradient(90deg, #D6001C, #FF1A35);
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===== GRADIENT TEXT ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #D6001C, #FF6B6B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+}
+
+/* ===== LIGHT MODE OVERRIDES ===== */
+.light .bg-persona-black { background-color: #FFFFFF; }
+.light .bg-persona-surface { background-color: #F5F5F5; }
+.light .bg-persona-surface-2 { background-color: #ECECEC; }
+.light .text-white { color: #111111; }
+.light .text-persona-gray { color: #555555; }
+.light ::-webkit-scrollbar-track { background: #F5F5F5; }
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideInLeft {
+  from { transform: translateX(-60px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes diagonalWipe {
+  from { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+  to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+@keyframes pulseRed {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(214, 0, 28, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(214, 0, 28, 0); }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
